@@ -1,0 +1,69 @@
+﻿<Window x:Class="Terminal_SCP.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Фонд SCP — Авторизация"
+        Height="540" Width="440"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Icon="/Resources/app.ico"
+        Background="{StaticResource WindowBg}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="{StaticResource Accent}" Height="4"/>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right"
+                    Margin="0,10,16,0">
+            <TextBlock Style="{StaticResource ClassifiedStamp}"/>
+        </StackPanel>
+
+        <Grid Grid.Row="1" Margin="40,0">
+            <StackPanel VerticalAlignment="Center">
+
+                <Image Source="/Resources/Logo SCP.png"
+                       Width="110" Height="110"
+                       HorizontalAlignment="Center" Margin="0,0,0,22"
+                       Stretch="Uniform"/>
+
+                <TextBlock Text="ВЕДОМСТВЕННЫЙ ТЕРМИНАЛ"
+                           Style="{StaticResource TerminalHeader}"
+                           HorizontalAlignment="Center" FontSize="18"/>
+                <TextBlock Text="ФОНД SCP // БЮРО АНОМАЛИЙ"
+                           Style="{StaticResource MutedText}"
+                           HorizontalAlignment="Center" Margin="0,4,0,2"/>
+                <TextBlock Text="ДОСТУП ТОЛЬКО ДЛЯ ПЕРСОНАЛА"
+                           Style="{StaticResource MutedText}"
+                           Foreground="{StaticResource Accent}"
+                           HorizontalAlignment="Center" Margin="0,0,0,26"/>
+
+                <TextBlock Text="ЛОГИН АГЕНТА" Style="{StaticResource SectionLabel}"/>
+                <TextBox x:Name="txtLogin" Style="{StaticResource TerminalTextBox}" Margin="0,0,0,16"/>
+
+                <TextBlock Text="КОД ДОСТУПА" Style="{StaticResource SectionLabel}"/>
+                <PasswordBox x:Name="txtPassword" Style="{StaticResource TerminalPasswordBox}" Margin="0,0,0,8"/>
+
+                <TextBlock x:Name="lblError" Foreground="{StaticResource Accent}"
+                           FontFamily="Consolas" FontSize="12" TextWrapping="Wrap"
+                           Visibility="Collapsed" Text="> ДОСТУП ЗАПРЕЩЁН: НЕВЕРНЫЙ КОД."
+                           Margin="0,4,0,12"/>
+
+                <Button x:Name="btnLogin" Content="АВТОРИЗАЦИЯ"
+                        Style="{StaticResource TerminalButton}"
+                        Margin="0,10,0,0" Click="btnLogin_Click"/>
+            </StackPanel>
+        </Grid>
+
+        <Border Grid.Row="2" BorderBrush="{StaticResource Divider}" BorderThickness="0,1,0,0"
+                Padding="16,10">
+            <Grid>
+                <TextBlock Text="СЕССИЯ ЗАЩИЩЕНА // УРОВЕНЬ 2" Style="{StaticResource MutedText}"/>
+                <TextBlock Text="v.1.0 MVP" Style="{StaticResource MutedText}"
+                           HorizontalAlignment="Right"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
